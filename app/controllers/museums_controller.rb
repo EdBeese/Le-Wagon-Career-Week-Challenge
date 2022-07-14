@@ -10,7 +10,7 @@ class MuseumsController < ApplicationController
 
   private
   def get_api_data(longitude, latitude)
-    url = "https://api.mapbox.com/geocoding/v5/mapbox.places/museum.json?type=poi&proximity=#{longitude},#{latitude}&access_token=pk.eyJ1IjoiYmVlc2UiLCJhIjoiY2wzYWw0b2V4MDZtZjNkbnJzdW5rZjZqMyJ9.r0LGJiSrXeytauzSf1QhXA"
+    url = "https://api.mapbox.com/geocoding/v5/mapbox.places/museum.json?type=poi&proximity=#{longitude},#{latitude}&access_token=#{ENV['MAPBOX_API_KEY']}"
 
     serialized = URI.parse(url).open.read
     map_data = JSON.parse(serialized, object_class: OpenStruct)
