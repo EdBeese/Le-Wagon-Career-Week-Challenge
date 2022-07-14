@@ -1,3 +1,6 @@
+require "json"
+require "open-uri"
+require "ostruct"
 class MuseumsController < ApplicationController
   def index
     # raise
