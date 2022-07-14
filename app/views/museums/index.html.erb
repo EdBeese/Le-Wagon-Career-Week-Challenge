@@ -5,9 +5,14 @@
     <% @museums.each do |museum| %>
       <div class="card col-lg-4 col-md-6 col-sm-12">
         <div class="card-header">
-          <%= museum.text %>
+          <% unless get_website(museum.text).nil? %>
+            <%= link_to museum.text, "http://#{get_website(museum.text)}", target: :_blank %>
+          <% else %>
+            <%= museum.text %>
+          <% end %>
         </div>
         <div class="card-body">
+          <p><%= museum.category %></p>
           <p>Address</p>
           <footer><%= museum.place_name %></cite></footer>
         </div>
