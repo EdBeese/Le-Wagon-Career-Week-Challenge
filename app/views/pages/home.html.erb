@@ -1,2 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <h1>Find Museums Near You</h1>
+  <div class="nav-search-bar mt-1">
+    <%= form_tag museums_path, method: :get, class: 'form-content' do %>
+      <%= text_field_tag :longitude,
+        params[:longitude],
+        class: "nav-search-input",
+        placeholder: "Longitude Coordinates"
+      %>
+      <%= text_field_tag :latitude,
+        params[:latitude],
+        class: "nav-search-input",
+        placeholder: "Latitude Coordinates"
+      %>
+      <%= button_tag(type: "submit", class: "nav-submit-search") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
